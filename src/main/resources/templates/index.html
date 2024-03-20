@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles/normalize.css}">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <title>Main page</title>
+</head>
+
+<body>
+    <div th:replace="fragments/general.html :: header"></div>
+    <div class="content">
+        <div class="search">
+            <form>
+                <div class="search-input">
+                    <input type="search" name="q">
+                    <button>Search</button>
+                </div>
+                <div class="filters">Filters</div>
+            </form>
+        </div>
+        <div class="projects">
+            <div class="project" th:each="project : ${projects}" th:object="${project}">
+                <a th:href="@{/projects/{id}(id=*{id})}" class="img-container">
+                    <img th:src="*{pictures.get(0)}" alt="project-image">
+                </a>
+                <div class="project-details">
+                    <div class="project-name" th:text="*{name}"></div>
+                    <div class="project-description" th:text="*{description}"></div>
+                    <div class="project-members">
+                        <div class="subscribers">
+                            <img th:src="@{/eye-pupil.svg}" alt="subscribers">
+                            <span th:text="*{subscribers.size()}"></span>
+                        </div>
+                    </div>
+                    <a th:href="@{/projects/{id}(id=*{id})}" class="to-details">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -21,4 +21,10 @@ public class InvestTariff {
     @Column(columnDefinition = "TEXT")
     private String description;
     private Double price;
+
+    public InvestTariff(String name, String description, Double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 }

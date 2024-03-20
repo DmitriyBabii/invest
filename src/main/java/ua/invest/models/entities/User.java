@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,18 +27,12 @@ public class User {
     private Date birth;             // TODO must be 18 years old
     private Date registered = Date.valueOf(LocalDate.now());
 
-    @OneToMany(mappedBy = "owner")
-    private List<Company> companies;
-    @ManyToMany(mappedBy = "members")
-    private List<Company> memberships;
-
     @ManyToMany(mappedBy = "subscribers")
-    private List<Project> subscribes;
-
+    private List<Project> subscribes = new ArrayList<>();
     @OneToMany(mappedBy = "user")
-    private List<SingleInvest> singleInvests;
+    private List<SingleInvest> singleInvests = new ArrayList<>();
     @OneToMany(mappedBy = "user")
-    private List<InvestSubscribe> investSubscribes;
+    private List<InvestSubscribe> investSubscribes = new ArrayList<>();
 
     public User(String email, String password, Date birth) {
         this.email = email;

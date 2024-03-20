@@ -1,6 +1,5 @@
 package ua.invest.models.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -25,15 +24,12 @@ public class Project {
     private String name;
     @Column(columnDefinition = "TEXT")
     private String description;
-    private String logo;
     @ElementCollection
     private List<String> pictures;
     private Date created = Date.valueOf(LocalDate.now());
     @OneToMany
-    private List<InvestTariff> tariffs;
+    private List<InvestTariff> tariffs = new ArrayList<>();
 
-    @ManyToOne
-    private Company company;
     @ManyToMany
     private List<User> subscribers;
     @OneToMany
@@ -43,15 +39,17 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private List<InvestSubscribe> investSubscribes;
 
-    public Project(String name, String description, String logo, List<String> pictures, Company company) {
+    public Project(String name, String description, List<String> pictures) {
         this.name = name;
         this.description = description;
-        this.logo = logo;
         this.pictures = pictures;
-        this.company = company;
     }
 
     public void addPost(Post post) {
-        posts.add(post);
+        this.posts.add(post);
+    }
+
+    public void addTariff(InvestTariff tariff){
+        this.tariffs.add(tariff);
     }
 }

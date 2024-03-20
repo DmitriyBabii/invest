@@ -23,13 +23,12 @@ public class Post {
     private String title;
     @Column(columnDefinition = "TEXT")
     private String content;
-    @ElementCollection
-    private List<String> pictures;
+    private String picture;
     private Date created = Date.valueOf(LocalDate.now());
 
-    public Post(String title, String content, List<String> pictures) {
+    public Post(String title, String content, String picture) {
         this.title = title;
         this.content = content;
-        this.pictures = pictures;
+        this.picture = picture;
     }
 }

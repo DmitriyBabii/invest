@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General</title>
+</head>
+
+<body>
+    <header th:fragments="header">
+        <div class="header-container">
+            <a class="logo-container" href="#"></a>
+            <a class="header-link" th:href="@{/projects}" href="#">Main</a>
+            <a class="header-link" th:href="@{/projects}" href="#">Projects</a>
+            <a class="header-link" th:href="@{/account}" href="#">Account</a>
+        </div>
+    </header>
+</body>
+
+</html>
