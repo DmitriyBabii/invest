@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.invest.models.entities.InvestTariff;
-import ua.invest.models.entities.Project;
-import ua.invest.repositories.ProjectRepository;
-import ua.invest.repositories.TariffRepository;
+import ua.invest.models.entities.SingleInvest;
+import ua.invest.repositories.SingleInvestRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -19,12 +17,12 @@ import java.util.UUID;
 @RestController
 @RequestMapping
 @RequiredArgsConstructor
-public class TariffController {
+public class SingleInvestController {
     @Autowired
-    private final TariffRepository tariffRepository;
+    private final SingleInvestRepository singleInvestRepository;
 
-    @GetMapping("/api/tariffs/{projectId}")
-    public ResponseEntity<List<InvestTariff>> getTariffsByProjectId(@PathVariable String projectId) {
-        return new ResponseEntity<>(tariffRepository.findAllByProjectId(UUID.fromString(projectId)), HttpStatus.OK);
+    @GetMapping("/api/single-invests/{userId}")
+    public ResponseEntity<List<SingleInvest>> getSingleInvests(@PathVariable("userId") String userId) {
+        return new ResponseEntity<>(singleInvestRepository.findAllByUserId(UUID.fromString(userId)), HttpStatus.OK);
     }
 }

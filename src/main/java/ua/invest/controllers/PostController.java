@@ -21,13 +21,10 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PostController {
     @Autowired
-    private final ProjectRepository projectRepository;
-    @Autowired
     private final PostRepository postRepository;
 
     @GetMapping("/{projectId}")
-    public ResponseEntity<List<Post>> getPostsByProjectId(@PathVariable String projectId) {
-        Project project = projectRepository.findById(UUID.fromString(projectId)).get();
-        return new ResponseEntity<>(project.getPosts(), HttpStatus.OK);
+    public ResponseEntity<List<Post>> getPostsByProjectId(@PathVariable String projectId) throws IllegalArgumentException{
+        return new ResponseEntity<>(postRepository.findAllByProjectId(UUID.fromString(projectId)), HttpStatus.OK);
     }
 }

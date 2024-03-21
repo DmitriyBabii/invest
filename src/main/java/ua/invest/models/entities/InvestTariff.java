@@ -1,5 +1,6 @@
 package ua.invest.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -22,9 +23,14 @@ public class InvestTariff {
     private String description;
     private Double price;
 
-    public InvestTariff(String name, String description, Double price) {
+    @JsonIgnore
+    @ManyToOne
+    private Project project;
+
+    public InvestTariff(String name, String description, Double price, Project project) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.project = project;
     }
 }

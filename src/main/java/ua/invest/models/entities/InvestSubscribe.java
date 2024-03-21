@@ -22,8 +22,6 @@ public class InvestSubscribe {
     @ManyToOne
     private User user;
     @ManyToOne
-    private Project project;
-    @ManyToOne
     private InvestTariff tariff;
     private Date start = Date.valueOf(LocalDate.now());
     private Date lastTransaction;

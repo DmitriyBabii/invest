@@ -4,14 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ua.invest.models.entities.Project;
-import ua.invest.repositories.PostRepository;
+import ua.invest.models.enums.Category;
 import ua.invest.repositories.ProjectRepository;
+import ua.invest.services.ProjectService;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +20,8 @@ import java.util.UUID;
 public class ProjectController {
     @Autowired
     private final ProjectRepository projectRepository;
+    @Autowired
+    private final ProjectService projectService;
 
     @GetMapping
     public ResponseEntity<List<Project>> getProjects() {
@@ -29,8 +29,10 @@ public class ProjectController {
     }
 
     @GetMapping("/projects")
-    public ModelAndView getProjects(ModelAndView modelAndView) {
-        modelAndView.addObject("projects", projectRepository.findAll());
+    public ModelAndView getProjects(@RequestParam(value = "q", defaultValue = "") String search,
+                                    @RequestParam(value = "cat", required = false) List<Category> categories,
+                                    ModelAndView modelAndView) {
+        modelAndView.addObject("projects", projectService.findAllBySubSearch(search, categories));
         modelAndView.setViewName("index.html");
         return modelAndView;
     }

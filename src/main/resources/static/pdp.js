@@ -10,27 +10,23 @@ sliderImages.forEach(elem => {
     }
 })
 
-console.log(`/api/posts/${projectId}`)
-
 fetch(`/api/posts/${projectId}`)
     .then((response) => response.json())
     .then((json) => {
+        console.log(json)
         json.forEach(elem => {
             const post = document.createElement('div')
             const img = document.createElement('img')
-            //const title = document.createElement('div')
             const content = document.createElement('div')
 
             post.className = 'post'
 
             img.src = elem.picture
-            //title.textContent = elem.title
 
             content.className = 'post-details'
             content.textContent = elem.content
 
             post.append(img)
-            //post.append(title)
             post.append(content)
             postsContainer.append(post)
         })
@@ -39,6 +35,7 @@ fetch(`/api/posts/${projectId}`)
 fetch(`/api/tariffs/${projectId}`)
     .then((response) => response.json())
     .then((json) => {
+        console.log(json)
         json.forEach(elem => {
             const tariff = document.createElement('div')
             const tariffPrice = document.createElement('div')
@@ -68,20 +65,3 @@ fetch(`/api/tariffs/${projectId}`)
             tariffsContainer.append(tariff)
         })
     });
-
-
-// <div class="tarif" th:each="tariff : *{tariffs}" th:object="${tariff}">
-//         <div class="tarif-price" th:text="*{price}"></div>
-//         <div class="tarif-details">
-//             <div class="tarif-name">Some tarif name</div>
-//             <div class="tarif-description">
-//                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos velit recusandae asperiores
-//                 voluptate optio? In at nulla nesciunt accusantium pariatur illo, cum totam assumenda excepturi
-//                 inventore expedita vel quisquam provident.
-//                 Odit qui molestias quo sunt, cupiditate nulla asperiores eum in dignissimos ipsa ea expedita
-//                 possimus rerum accusamus eos, dolor, reprehenderit maiores. Vero animi est corporis ratione
-//                 repudiandae veritatis totam doloremque?
-//             </div>
-//             <a href="#" class="subscribe-tarif">Subscribe</a>
-//         </div>
-//     </div>

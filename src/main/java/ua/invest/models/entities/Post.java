@@ -1,5 +1,6 @@
 package ua.invest.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -26,9 +27,14 @@ public class Post {
     private String picture;
     private Date created = Date.valueOf(LocalDate.now());
 
-    public Post(String title, String content, String picture) {
+    @JsonIgnore
+    @ManyToOne
+    private Project project;
+
+    public Post(String title, String content, String picture, Project project) {
         this.title = title;
         this.content = content;
         this.picture = picture;
+        this.project = project;
     }
 }
