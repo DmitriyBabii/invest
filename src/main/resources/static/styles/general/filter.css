@@ -1,0 +1,73 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    height: 500px;
+    background-color: #022C711A;
+}
+
+.filter-categories {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.filter-categories span {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+select {
+    /* Приховати стандартну стрілку */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    -moz-appearance: none;
+    /* Firefox */
+    appearance: none;
+
+    /* Додати власну стрілку */
+    background-image: url(../../images/general/arrow_up.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 16px) 50%;
+
+    color: white;
+    padding: 16px;
+    padding-right: 36px;
+    background-color: #A7A7A766;
+    border: none;
+    border-radius: 4px;
+}
+
+option {
+    padding: 16px;
+
+    color: black;
+    background-color: white;
+}
+
+input[type="search"] {
+    padding: 16px;
+    padding-left: 46px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #A7A7A766;
+    border-radius: 4px;
+
+    background-image: url(../../images/general/search.svg);
+    background-repeat: no-repeat;
+    background-position: calc(0% + 16px) 50%;
+
+    color: white;
+    font-size: 20px;
+}
+
+input[type="search"]::placeholder {
+    color: white;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}

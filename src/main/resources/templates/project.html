@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/general/header.css">
+    <link rel="stylesheet" href="../static/styles/general/normalize.css">
+    <link rel="stylesheet" href="../static/styles/general/general.css">
+    <link rel="stylesheet" href="../static/styles/general/nav.css">
+    <link rel="stylesheet" href="../static/styles/general/footer.css">
+    <title>Project</title>
+    <style>
+        .project-header {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            width: 100%;
+            padding: 64px calc((100vw - 1140px) / 2);
+            background-color: #022C711A;
+
+            text-align: center;
+        }
+
+        .project-name {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        .project-description {
+            font-size: 18px;
+        }
+
+        .project-details {
+            display: flex;
+            gap: 20px;
+
+            width: 100%;
+
+            padding: 64px calc((100vw - 1140px) / 2);
+        }
+
+        .project-img {
+            flex: 660px 0 0;
+            height: 440px;
+            background-color: lightcoral;
+            border-radius: 4px;
+        }
+
+        .project-invest {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            width: 100%;
+        }
+
+        .project-invest-progress-bar {
+            width: 100%;
+            height: 16px;
+            background-color: #A7A7A71A;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .project-invest-progress-bar>* {
+            width: 50%;
+            height: 100%;
+            background-color: #022C71;
+            border-radius: 8px;
+        }
+
+        .project-invest-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .project-invest-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .project-invest-section-value {
+            font-size: 32px;
+            font-weight: 600;
+            color: #022C71;
+        }
+
+        .project-invest-section-name {
+            color: #A7A7A7;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-action {
+            padding: 16px;
+            border-radius: 4px;
+        }
+
+        .project-follow-action {
+            border: 1px solid #A7A7A766;
+            background-image: url(../static/images/general/bookmark.svg);
+            background-repeat: no-repeat;
+            background-position: calc(0% + 16px) 50%;
+            padding-left: 46px;
+        }
+
+        .project-invest-action {
+            width: 100%;
+            background-color: #022C71;
+            color: white;
+            text-align: center;
+        }
+
+        .project-nav {
+            position: sticky;
+            top: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+            padding: 4px calc((100vw - 1140px) / 2);
+            background-color: white;
+        }
+
+        .project-nav-sections {
+            display: flex;
+            gap: 48px;
+        }
+
+        .project-nav-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 52px;
+
+            font-size: 18px;
+        }
+
+        .project-nav-section[current] {
+            border-bottom: 2px solid #022C71;
+            color: #022C71;
+        }
+
+        .project-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+
+            padding: 48px 0;
+            margin: auto;
+
+            background-color: #A7A7A766;
+            border-bottom: 1px solid #A7A7A766;
+        }
+
+        .project-update {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            width: 750px;
+            padding: 24px;
+            border: 1px solid #A7A7A7;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        .project-update-title {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .project-update-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-update-author-img,
+        .project-update-author-img img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .delimiter {
+            width: 100%;
+            height: 1px;
+            background-color: #A7A7A766;
+        }
+
+        .project-update-description {
+            line-height: 25px;
+            text-align: justify;
+
+            /* max-height: 350px;
+            overflow: hidden; */
+        }
+
+        .project-update-more {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .read-more {
+            padding: 12px 16px;
+            border: 1px solid #A7A7A766;
+            border-radius: 4px;
+        }
+
+        .project-update-number {
+            font-size: 18px;
+            font-weight: 500;
+            color: #A7A7A7;
+        }
+
+        .project-update-name {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .project-update-author-name {
+            font-weight: 500;
+        }
+
+        .project-launches {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            width: 750px;
+            padding: 24px;
+            border-radius: 4px;
+            background-color: #022C71;
+
+            color: white;
+            text-align: center;
+        }
+
+        .project-launches-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .project-launches-date {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Logo</div>
+            <div class="header-nav">
+                <a class="create-project" href="#">Start new project</a>
+                <a class="account" href="#">
+                    <div class="account-name">Log in</div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="project-header">
+            <div class="project-name">Long name of project for two lines or not but yes project name</div>
+            <div class="project-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae tempora ratione corrupti quisquam minus
+                consectetur esse, facilis iste aperiam velit ea est dolor voluptatum, cumque non libero iure, cupiditate
+                veniam?
+            </div>
+        </div>
+        <div class="project-details">
+            <div class="project-img"></div>
+            <div class="project-invest">
+                <div class="content-nav">
+                    <span>MAIN</span>
+                    <span>CATALOG</span>
+                    <span>PROJECT NAME</span>
+                </div>
+                <div class="project-invest-progress-bar">
+                    <div></div>
+                </div>
+                <div class="project-invest-info">
+                    <div class="project-invest-info-section">
+                        <div class="project-invest-section-value">$1200</div>
+                        <div class="project-invest-section-name">pledged of $4000 goal</div>
+                    </div>
+                    <div class="project-invest-info-section">
+                        <div class="project-invest-section-value">115</div>
+                        <div class="project-invest-section-name">investors</div>
+                    </div>
+                    <div class="project-invest-info-section">
+                        <div class="project-invest-section-value">7</div>
+                        <div class="project-invest-section-name">days left</div>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="#" class="project-action project-invest-action">Invest in this project</a>
+                    <a href="#" class="project-action project-follow-action">Follow</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-nav">
+            <div class="project-nav-sections">
+                <a href="#" class="project-nav-section" current>Updates</a>
+                <a href="#" class="project-nav-section">FAQ</a>
+            </div>
+            <div class="project-actions">
+                <a href="#" class="project-action project-invest-action">Invest in this project</a>
+                <a href="#" class="project-action project-follow-action">Follow</a>
+            </div>
+        </div>
+        <div class="project-section">
+            <div class="project-update">
+                <div class="project-update-number">UPDATE #3</div>
+                <div class="project-update-title">
+                    <div class="project-update-name">
+                        Long name of project for two lines or not but yes project name
+                    </div>
+                    <div class="project-update-author">
+                        <div class="project-update-author-img">
+                            <img src="../static/images/general/acc1.png" alt="account">
+                        </div>
+                        <div class="project-update-author-name">Author name</div>
+                    </div>
+                </div>
+                <span class="delimiter"></span>
+                <div class="project-update-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nam deleniti officiis ipsam qui
+                    dicta laboriosam quae, sit repudiandae tempore porro necessitatibus recusandae voluptatum. Error
+                    cumque laudantium debitis quam tempora?
+                    Animi, officia quod suscipit voluptatem rem illo quidem a provident voluptates at harum nesciunt
+                    nobis optio id laudantium veritatis rerum natus expedita, eum reprehenderit ullam aspernatur est
+                    dolor repellendus. Laboriosam.
+                    Perferendis recusandae facere itaque numquam eos, molestiae officia quaerat quia, soluta, est iusto
+                    nesciunt distinctio at! Recusandae soluta rerum dolorem aspernatur accusantium labore, vitae hic non
+                    molestias laboriosam eum dignissimos.
+                    Earum natus quibusdam explicabo eos magni aut nisi temporibus modi. Ducimus quasi quam magnam veniam
+                    nobis nisi tenetur error quod blanditiis, hic at exercitationem aspernatur beatae odit quidem
+                    expedita neque.
+                    Saepe, aperiam et! Harum beatae deleniti amet molestiae quod itaque maxime enim soluta facere
+                    voluptate placeat commodi earum nam totam, tenetur voluptates omnis repellat impedit quia dolore
+                    minima ex assumenda?
+                    Rerum molestiae ipsam aliquam sint fuga repellendus qui voluptate molestias corporis ex. Consequatur
+                    suscipit aliquid adipisci sint numquam necessitatibus, quod eligendi tenetur ratione, deserunt
+                    repellat facilis aspernatur, labore est quos.
+                    Porro velit facere officiis reiciendis asperiores recusandae laborum omnis cupiditate? Tempora,
+                    quibusdam molestiae aperiam nostrum dicta ipsum atque? Quis facere deleniti labore laborum eum iure
+                    voluptates repellat, accusamus saepe natus!
+                    Laborum tempora laboriosam voluptatibus libero natus odio! Tenetur ex eligendi numquam, debitis at
+                    fugiat ad nisi incidunt fugit cum error, pariatur quasi porro! Impedit dignissimos doloremque omnis
+                    qui sequi voluptate.
+                    Adipisci, reiciendis! Excepturi deserunt illo molestiae vel debitis autem a laborum fugit ratione
+                    illum commodi perspiciatis neque quae tenetur, quidem non incidunt odio reprehenderit earum
+                    laudantium necessitatibus. Quidem, magnam voluptatibus.
+                    Nesciunt, reprehenderit sit ipsam dicta odio laudantium excepturi totam ipsum eos porro. Fuga
+                    perferendis iusto, corrupti aliquam a officiis quasi expedita non, ad tenetur veniam, dolores
+                    numquam eveniet earum tempore!
+                </div>
+                <div class="project-update-more">
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            <div class="project-update">
+                <div class="project-update-number">UPDATE #3</div>
+                <div class="project-update-title">
+                    <div class="project-update-name">
+                        Long name of project for two lines or not but yes project name
+                    </div>
+                    <div class="project-update-author">
+                        <div class="project-update-author-img">
+                            <img src="../static/images/general/acc1.png" alt="account">
+                        </div>
+                        <div class="project-update-author-name">Author name</div>
+                    </div>
+                </div>
+                <span class="delimiter"></span>
+                <div class="project-update-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nam deleniti officiis ipsam qui
+                    dicta laboriosam quae, sit repudiandae tempore porro necessitatibus recusandae voluptatum. Error
+                    cumque laudantium debitis quam tempora?
+                    Animi, officia quod suscipit voluptatem rem illo quidem a provident voluptates at harum nesciunt
+                    nobis optio id laudantium veritatis rerum natus expedita, eum reprehenderit ullam aspernatur est
+                    dolor repellendus. Laboriosam.
+                    Perferendis recusandae facere itaque numquam eos, molestiae officia quaerat quia, soluta, est iusto
+                    nesciunt distinctio at! Recusandae soluta rerum dolorem aspernatur accusantium labore, vitae hic non
+                    molestias laboriosam eum dignissimos.
+                    Earum natus quibusdam explicabo eos magni aut nisi temporibus modi. Ducimus quasi quam magnam veniam
+                    nobis nisi tenetur error quod blanditiis, hic at exercitationem aspernatur beatae odit quidem
+                    expedita neque.
+                    Saepe, aperiam et! Harum beatae deleniti amet molestiae quod itaque maxime enim soluta facere
+                    voluptate placeat commodi earum nam totam, tenetur voluptates omnis repellat impedit quia dolore
+                    minima ex assumenda?
+                    Rerum molestiae ipsam aliquam sint fuga repellendus qui voluptate molestias corporis ex. Consequatur
+                    suscipit aliquid adipisci sint numquam necessitatibus, quod eligendi tenetur ratione, deserunt
+                    repellat facilis aspernatur, labore est quos.
+                    Porro velit facere officiis reiciendis asperiores recusandae laborum omnis cupiditate? Tempora,
+                    quibusdam molestiae aperiam nostrum dicta ipsum atque? Quis facere deleniti labore laborum eum iure
+                    voluptates repellat, accusamus saepe natus!
+                    Laborum tempora laboriosam voluptatibus libero natus odio! Tenetur ex eligendi numquam, debitis at
+                    fugiat ad nisi incidunt fugit cum error, pariatur quasi porro! Impedit dignissimos doloremque omnis
+                    qui sequi voluptate.
+                    Adipisci, reiciendis! Excepturi deserunt illo molestiae vel debitis autem a laborum fugit ratione
+                    illum commodi perspiciatis neque quae tenetur, quidem non incidunt odio reprehenderit earum
+                    laudantium necessitatibus. Quidem, magnam voluptatibus.
+                    Nesciunt, reprehenderit sit ipsam dicta odio laudantium excepturi totam ipsum eos porro. Fuga
+                    perferendis iusto, corrupti aliquam a officiis quasi expedita non, ad tenetur veniam, dolores
+                    numquam eveniet earum tempore!
+                </div>
+                <div class="project-update-more">
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            <div class="project-update">
+                <div class="project-update-number">UPDATE #3</div>
+                <div class="project-update-title">
+                    <div class="project-update-name">
+                        Long name of project for two lines or not but yes project name
+                    </div>
+                    <div class="project-update-author">
+                        <div class="project-update-author-img">
+                            <img src="../static/images/general/acc1.png" alt="account">
+                        </div>
+                        <div class="project-update-author-name">Author name</div>
+                    </div>
+                </div>
+                <span class="delimiter"></span>
+                <div class="project-update-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nam deleniti officiis ipsam qui
+                    dicta laboriosam quae, sit repudiandae tempore porro necessitatibus recusandae voluptatum. Error
+                    cumque laudantium debitis quam tempora?
+                    Animi, officia quod suscipit voluptatem rem illo quidem a provident voluptates at harum nesciunt
+                    nobis optio id laudantium veritatis rerum natus expedita, eum reprehenderit ullam aspernatur est
+                    dolor repellendus. Laboriosam.
+                    Perferendis recusandae facere itaque numquam eos, molestiae officia quaerat quia, soluta, est iusto
+                    nesciunt distinctio at! Recusandae soluta rerum dolorem aspernatur accusantium labore, vitae hic non
+                    molestias laboriosam eum dignissimos.
+                    Earum natus quibusdam explicabo eos magni aut nisi temporibus modi. Ducimus quasi quam magnam veniam
+                    nobis nisi tenetur error quod blanditiis, hic at exercitationem aspernatur beatae odit quidem
+                    expedita neque.
+                    Saepe, aperiam et! Harum beatae deleniti amet molestiae quod itaque maxime enim soluta facere
+                    voluptate placeat commodi earum nam totam, tenetur voluptates omnis repellat impedit quia dolore
+                    minima ex assumenda?
+                    Rerum molestiae ipsam aliquam sint fuga repellendus qui voluptate molestias corporis ex. Consequatur
+                    suscipit aliquid adipisci sint numquam necessitatibus, quod eligendi tenetur ratione, deserunt
+                    repellat facilis aspernatur, labore est quos.
+                    Porro velit facere officiis reiciendis asperiores recusandae laborum omnis cupiditate? Tempora,
+                    quibusdam molestiae aperiam nostrum dicta ipsum atque? Quis facere deleniti labore laborum eum iure
+                    voluptates repellat, accusamus saepe natus!
+                    Laborum tempora laboriosam voluptatibus libero natus odio! Tenetur ex eligendi numquam, debitis at
+                    fugiat ad nisi incidunt fugit cum error, pariatur quasi porro! Impedit dignissimos doloremque omnis
+                    qui sequi voluptate.
+                    Adipisci, reiciendis! Excepturi deserunt illo molestiae vel debitis autem a laborum fugit ratione
+                    illum commodi perspiciatis neque quae tenetur, quidem non incidunt odio reprehenderit earum
+                    laudantium necessitatibus. Quidem, magnam voluptatibus.
+                    Nesciunt, reprehenderit sit ipsam dicta odio laudantium excepturi totam ipsum eos porro. Fuga
+                    perferendis iusto, corrupti aliquam a officiis quasi expedita non, ad tenetur veniam, dolores
+                    numquam eveniet earum tempore!
+                </div>
+                <div class="project-update-more">
+                    <a href="#" class="read-more">Read more</a>
+                </div>
+            </div>
+            <div class="project-launches">
+                <div class="project-launches-title">Project launches</div>
+                <div class="project-launches-date">11 March 2024</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div>© Company name – Company sentence. Created by Figma</div>
+            <div>It is a footer. 2024.</div>
+        </div>
+    </footer>
+</body>
+
+</html>

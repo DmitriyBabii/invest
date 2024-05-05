@@ -1,0 +1,145 @@
+.filter {
+    height: auto;
+    padding: 80px 0;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 1140px;
+    margin: 24px auto;
+}
+
+.projects-catalog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .15);
+}
+
+.project-img {
+    flex: 100px 0 0;
+    background-color: #A7A7A7;
+    border-radius: 4px;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 100%;
+}
+
+.project-name {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.follow {
+    flex: 24px 0 0;
+    height: 24px;
+    background-image: url(../static/images/general/bookmark.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+}
+
+.project-title {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.project-invest {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-author-img,
+.project-author-img img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.project-author-name {
+    font-weight: 500;
+}
+
+.project-invest-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-invest-progress-value {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.project-invest-progress-value>.need {
+    color: #022C71;
+}
+
+.project-invest-progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #A7A7A71A;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.project-invest-progress-bar>* {
+    width: 50%;
+    height: 100%;
+    background-color: #022C71;
+    border-radius: 4px;
+}
+
+.project-description {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: justify;
+
+    max-height: 110px;
+    overflow: hidden;
+}
+
+.project-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-category {
+    padding: 8px 16px;
+    border: 1px solid #A7A7A7;
+    border-radius: 100px;
+
+    color: #A7A7A7;
+    font-size: 14px;
+}

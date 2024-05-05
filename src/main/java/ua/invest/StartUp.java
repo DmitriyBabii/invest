@@ -30,6 +30,9 @@ public class StartUp implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        if(true){
+            return;
+        }
         User user = new User("SomeEmail", "password", Date.valueOf(LocalDate.now()));
         List<Project> projects = Arrays.asList(
                 new Project(

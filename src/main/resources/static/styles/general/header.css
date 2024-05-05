@@ -1,0 +1,39 @@
+header{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+}
+
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 1140px;
+    height: 100px;
+    margin: auto;
+}
+
+.header-nav{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.account{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.create-project{
+    padding: 16px;
+    border: 1px solid #A7A7A766;
+    border-radius: 4px;
+}
