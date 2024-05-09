@@ -6,15 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class InvestSubscribe {
+public class Donat {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Setter(AccessLevel.NONE)
@@ -22,8 +20,12 @@ public class InvestSubscribe {
     @ManyToOne
     private User user;
     @ManyToOne
-    private InvestTariff tariff;
-    private Date start = Date.valueOf(LocalDate.now());
-    private Date lastTransaction;
-    private Date end;
+    private Project project;
+    private Double donat;           // TODO must be more then 0
+
+    public Donat(User user, Project project, Double donat) {
+        this.user = user;
+        this.project = project;
+        this.donat = donat;
+    }
 }

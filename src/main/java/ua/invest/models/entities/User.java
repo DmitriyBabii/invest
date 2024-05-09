@@ -22,21 +22,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Setter(AccessLevel.NONE)
     private UUID id;
+    private String name;
+    private String surname;
     private String email;
     private String password;
-    private Date birth;             // TODO must be 18 years old
     private Date registered = Date.valueOf(LocalDate.now());
 
-    @ManyToMany(mappedBy = "subscribers")
-    private List<Project> subscribes = new ArrayList<>();
+    @OneToMany(mappedBy = "owner")
+    private List<Project> projects;
+    @ManyToMany(mappedBy = "followers")
+    private List<Project> follows = new ArrayList<>();
     @OneToMany(mappedBy = "user")
-    private List<SingleInvest> singleInvests = new ArrayList<>();
+    private List<Donat> donates = new ArrayList<>();
     @OneToMany(mappedBy = "user")
-    private List<InvestSubscribe> investSubscribes = new ArrayList<>();
+    private List<Subscribe> subscribes = new ArrayList<>();
 
-    public User(String email, String password, Date birth) {
+    public User(String name, String surname, String email, String password) {
+        this.name = name;
+        this.surname = surname;
         this.email = email;
         this.password = password;
-        this.birth = birth;
     }
 }

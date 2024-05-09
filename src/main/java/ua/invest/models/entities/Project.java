@@ -25,33 +25,30 @@ public class Project {
     private String name;
     @Column(columnDefinition = "TEXT")
     private String description;
+    private String picture;
     @Enumerated
     private Category category;
-    @ElementCollection
-    private List<String> pictures;
+    private Double currentInvest = .0;
+    private Double goalInvest;
     private Date created = Date.valueOf(LocalDate.now());
 
+    @ManyToOne
+    private User owner;
     @OneToMany(mappedBy = "project")
-    private List<InvestTariff> tariffs = new ArrayList<>();
+    private List<Tariff> tariffs = new ArrayList<>();
     @ManyToMany
-    private List<User> subscribers = new ArrayList<>();
+    private List<User> followers = new ArrayList<>();
     @OneToMany(mappedBy = "project")
     private List<Post> posts = new ArrayList<>();
     @OneToMany(mappedBy = "project")
-    private List<SingleInvest> singleInvests;
+    private List<Donat> donates;
 
-    public Project(String name, String description, Category category, List<String> pictures) {
+    public Project(User owner, String name, String description, String picture, Category category, Double goalInvest) {
+        this.owner = owner;
         this.name = name;
         this.description = description;
+        this.picture = picture;
         this.category = category;
-        this.pictures = pictures;
-    }
-
-    public void addPost(Post post) {
-        this.posts.add(post);
-    }
-
-    public void addTariff(InvestTariff tariff) {
-        this.tariffs.add(tariff);
+        this.goalInvest = goalInvest;
     }
 }

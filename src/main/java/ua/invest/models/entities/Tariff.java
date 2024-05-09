@@ -13,7 +13,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-public class InvestTariff {
+public class Tariff {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Setter(AccessLevel.NONE)
@@ -27,7 +27,7 @@ public class InvestTariff {
     @ManyToOne
     private Project project;
 
-    public InvestTariff(String name, String description, Double price, Project project) {
+    public Tariff(String name, String description, Double price, Project project) {
         this.name = name;
         this.description = description;
         this.price = price;

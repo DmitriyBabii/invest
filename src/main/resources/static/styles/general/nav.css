@@ -5,12 +5,16 @@
     color: #A7A7A766;
 }
 
-.content-nav>span:nth-child(n + 2)::before {
+.content-nav-section{
+    color: #A7A7A766;
+}
+
+.content-nav>.content-nav-section:nth-child(n + 2)::before {
     content: '>';
     margin-right: 8px;
     color: #A7A7A766;
 }
 
-.content-nav>span:nth-last-child(1) {
+.content-nav>.content-nav-section:nth-last-child(1) {
     color: #A7A7A7;
 }

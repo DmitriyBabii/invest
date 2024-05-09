@@ -21,20 +21,21 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Setter(AccessLevel.NONE)
     private UUID id;
+    @Column(name = "_order")
+    private Integer order;
     private String title;
     @Column(columnDefinition = "TEXT")
     private String content;
-    private String picture;
     private Date created = Date.valueOf(LocalDate.now());
 
     @JsonIgnore
     @ManyToOne
     private Project project;
 
-    public Post(String title, String content, String picture, Project project) {
+    public Post(Integer order, String title, String content, Project project) {
+        this.order = order;
         this.title = title;
         this.content = content;
-        this.picture = picture;
         this.project = project;
     }
 }

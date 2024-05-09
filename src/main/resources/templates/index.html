@@ -1,103 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/general/header.css">
-    <link rel="stylesheet" href="../static/styles/general/normalize.css">
-    <link rel="stylesheet" href="../static/styles/general/general.css">
-    <link rel="stylesheet" href="../static/styles/general/filter.css">
-    <link rel="stylesheet" href="../static/styles/main/main.css">
-    <link rel="stylesheet" href="../static/styles/general/footer.css">
+    <link rel="stylesheet" th:href="@{/styles/general/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/general/normalize.css}">
+    <link rel="stylesheet" th:href="@{/styles/general/general.css}">
+    <link rel="stylesheet" th:href="@{/styles/general/filter.css}">
+    <link rel="stylesheet" th:href="@{/styles/main/main.css}">
+    <link rel="stylesheet" th:href="@{/styles/general/footer.css}">
     <title>Main</title>
 </head>
 
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                Logo
-            </div>
-            <div class="header-nav">
-                <a class="create-project" href="#">Start new project</a>
-                <a class="account" href="#">
-                    <div class="account-name">Log in</div>
-                </a>
-            </div>
+<header th:replace="~{fragments/header.html :: header}"></header>
+<div class="content">
+    <form class="filter" action="/" method="get">
+        <div class="filter-categories">
+            <span>Show me</span>
+            <select name="c">
+                <option value="" selected>All categories</option>
+                <option value="some">Some1</option>
+                <option value="some">Some2</option>
+                <option value="some">Some3</option>
+            </select>
+            <span>projects on</span>
+            <select name="b" id="base-on">
+                <option value="" selected>Earth</option>
+                <option value="some">Some</option>
+                <option value="some">Some</option>
+                <option value="some">Some</option>
+            </select>
         </div>
-    </header>
-    <div class="content">
-        <form class="filter" action="/" method="get">
-            <div class="filter-categories">
-                <span>Show me</span>
-                <select name="c">
-                    <option value="" selected>All categories</option>
-                    <option value="some">Some1</option>
-                    <option value="some">Some2</option>
-                    <option value="some">Some3</option>
-                </select>
-                <span>projects on</span>
-                <select name="b" id="base-on">
-                    <option value="" selected>Earth</option>
-                    <option value="some">Some</option>
-                    <option value="some">Some</option>
-                    <option value="some">Some</option>
-                </select>
-            </div>
-            <div>
-                <input type="search" name="s" placeholder="Search">
-            </div>
-        </form>
-        <div class="ad-block">
-            <div class="ad-content">
-                <div class="project-img">
+        <div>
+            <input type="search" name="s" placeholder="Search">
+        </div>
+    </form>
+    <div class="ad-block">
+        <div class="ad-content">
+            <div class="project-img">
 
+            </div>
+            <div class="project-details">
+                <div class="project-title">
+                    <div class="project-name">
+                        <div>Long name of project for two lines or not but yes project name</div>
+                        <span class="follow"></span>
+                    </div>
+                    <div class="project-invest">
+                        <div class="project-author">
+                            <div class="project-author-img">
+                                <img th:src="@{images/general/acc1.png}" alt="account">
+                            </div>
+                            <div class="project-author-name">Author name</div>
+                        </div>
+                        <div class="project-invest-progress">
+                            <div class="project-invest-progress-value">
+                                <span class="have">$1200</span>
+                                <span class="delim">/</span>
+                                <span class="need">$4000</span>
+                            </div>
+                            <div class="project-invest-progress-bar">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-details">
-                    <div class="project-title">
-                        <div class="project-name">
-                            <div>Long name of project for two lines or not but yes project name</div>
-                            <span class="follow"></span>
-                        </div>
-                        <div class="project-invest">
-                            <div class="project-author">
-                                <div class="project-author-img">
-                                    <img src="../static/images/general/acc1.png" alt="account">
-                                </div>
-                                <div class="project-author-name">Author name</div>
-                            </div>
-                            <div class="project-invest-progress">
-                                <div class="project-invest-progress-value">
-                                    <span class="have">$1200</span>
-                                    <span class="delim">/</span>
-                                    <span class="need">$4000</span>
-                                </div>
-                                <div class="project-invest-progress-bar">
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi nesciunt debitis repellendus
-                        dignissimos soluta iste molestiae non animi optio iure facilis consectetur dolorem nisi odit
-                        atque quidem culpa, minima repellat.
-                    </div>
-                    <div class="project-categories">
-                        <div class="project-category">Category</div>
-                        <div class="project-category">Country, City</div>
-                    </div>
+                <div class="project-description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi nesciunt debitis repellendus
+                    dignissimos soluta iste molestiae non animi optio iure facilis consectetur dolorem nisi odit
+                    atque quidem culpa, minima repellat.
+                </div>
+                <div class="project-categories">
+                    <div class="project-category">Category</div>
+                    <div class="project-category">Country, City</div>
                 </div>
             </div>
         </div>
     </div>
-    <footer>
-        <div class="footer-content">
-            <div>© Company name – Company sentence. Created by Figma</div>
-            <div>It is a footer. 2024.</div>
-        </div>
-    </footer>
+</div>
+<footer th:replace="~{fragments/footer.html :: footer}"></footer>
 </body>
 
 </html>
