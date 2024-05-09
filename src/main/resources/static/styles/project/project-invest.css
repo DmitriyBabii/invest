@@ -1,0 +1,154 @@
+.project-header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 100%;
+    padding: 64px calc((100vw - 1140px) / 2);
+    background-color: #022C711A;
+
+    text-align: center;
+}
+
+.project-name {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.project-description {
+    font-size: 18px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    margin: 36px calc((100vw - 1140px) / 2);
+}
+
+.invest-section-header {
+    font-size: 18px;
+    font-weight: 500;
+    color: #A7A7A7;
+    text-transform: uppercase;
+}
+
+.invest-section-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.invests {
+    width: 100%;
+}
+
+.invest-warning {
+    flex: 360px 0 0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.invest-warning-title {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+
+    padding: 24px;
+    background-color: #022C71;
+}
+
+.invest-warning-content {
+    padding: 24px;
+    border: 1px solid #A7A7A7;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+
+    line-height: 26px;
+}
+
+.invests {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.invest {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding: 24px;
+    border-radius: 4px;
+    border: 1px solid #A7A7A7;
+}
+
+.invest-name {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #A7A7A7;
+}
+
+.invest-about {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.invest-price {
+    font-size: 24px;
+}
+
+.invest-price-value {
+    font-weight: 700;
+}
+
+.invest-price-per {
+    font-weight: 600;
+    color: #A7A7A7;
+}
+
+.invest-features-title {
+    text-transform: uppercase;
+    color: #A7A7A7;
+}
+
+.invest-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    list-style: none;
+}
+
+li::before {
+    content: '';
+    display: block;
+
+    flex: 24px 0 0;
+    height: 24px;
+    background-image: url(../static/images/invest/icon-feature.svg);
+}
+
+.select-tariff {
+    display: inline-block;
+    padding: 16px 24px;
+    background-color: #022C71;
+    border-radius: 4px;
+
+    color: white;
+}

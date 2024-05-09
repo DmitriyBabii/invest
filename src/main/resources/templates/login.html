@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/general/normalize.css">
+    <link rel="stylesheet" href="../static/styles/general/general.css">
+    <link rel="stylesheet" href="../static/styles/general/header.css">
+    <link rel="stylesheet" href="../static/styles/general/auth.css">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                Logo
+            </div>
+            <div class="header-nav">
+                <a class="create-project" href="#">Start new project</a>
+                <a class="account" href="#">
+                    <div class="account-name">Log in</div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <form action="/" method="post">
+            <div class="form-header">
+                <a href="#" class="form-back"></a>
+                <div class="form-name">Реєстрація</div>
+            </div>
+            <div class="form-auth">
+                <div class="form-auth-bio">
+                    <input type="text" name="name" placeholder="Ім'я" required>
+                    <input type="text" name="name" placeholder="Прізвище" required>
+                </div>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-btns">
+                <button>Увійти</button>
+                <a href="#">Реєстрація</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
